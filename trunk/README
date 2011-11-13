@@ -1,0 +1,146 @@
+This package contains the implementation of the Cognon Simulator.
+
+It implements a model of spike-based neuron processing discovered by 
+David H. Staelin and Carl H. Staelin and described in ...
+
+This simulator was written in C++ and developed under Linux.  It is 
+publicly released under the GNU GPL version 2.0.
+
+To build and run the simulator requires at least the following packages
+to be installed:
+
+    GNU C++ version 4.0 or later
+    GNU Make
+    Boost libraries
+
+To build and run the program:
+
+[1] Download the package from cognon.net
+
+[2] Unpack the zip or tar file
+
+[3] In a command shell run:
+
+    $ cd cognon-1.0
+    $ make all
+
+[4] To reproduce the data tables shown in the paper run:
+
+    $ make tables
+
+[5] To run the sample configurations:
+
+    $ ./cognon sample-input.spec
+
+    This simply runs the configurations and outputs a CSV data file
+    giving the learning performance for those configurations.
+
+[6] To run a sample set of configurations which are optimized by
+    a search process:
+
+    $ ./cognon -c sample-optimize.spec
+
+    This gives the system a base configuration from which it searches
+    for the optimal values of W, H, Q, and G_m.
+
+[7] Alternatively, you can build your own version of the simulator to
+    develop a better search strategy, build multi-neuron simulations,
+    explore alternative learning strategies, or pursue other interests.
+
+Tests:
+
+    There are a number of standalone unit tests for aspects of the
+    Cognon simulator.  There are not enough of them, but there is 
+    a start.  They are:
+
+    alice_test
+    bob_test
+    cognon_test
+    neuron_test
+    wordset_test
+
+Tables:
+
+    You can replicate our experiments simply by typing:
+
+    $ make tables
+
+    which runs cognon on these files:
+
+    table-2.1.spec
+    table-2.3.spec
+    table-2.4.spec
+    table-3.2.spec
+    table-3.3.spec
+    table-3.4.spec
+
+    There are a few standalone programs that perform the expensive search
+    process to find the best configurations for the tables from the monograph.
+    They can take a long time to run, but you may run the programs using:
+
+    $ table-2.1
+    $ table-2.3
+    $ table-2.4
+    $ table-3.3
+
+    You can run all of them by typing:
+
+    $ make searches
+
+Graphs:
+
+    You can replicate the experimental data for our graphs by typing:
+
+    $ make graphs
+
+    This will generate the Mathematica text input files containing the
+    data used to create Graphs 2.1, 2.2, and 2.3 from "Models for Neural
+    Spike Computation and Cognition":
+
+    graph-2.1.data
+    graph-2.2.data
+    graph-2.3.data
+    predict-2.1.data
+    predict-2.3.data
+
+This package contains the following files:
+
+COPYING
+Makefile
+README
+alice.cc
+alice.h
+alice_test.cc
+bob.cc
+bob.h
+bob_test.cc
+cognon-orig.h
+cognon.cc
+cognon.h
+cognon_main.cc
+cognon_stats.cc
+cognon_test.cc
+compat.cc
+compat.h
+monograph.cc
+monograph.h
+mtrand.h
+neuron.cc
+neuron.h
+sample-input.spec
+sample-input.spec
+sample-optimize.spec
+sample-optimize.spec
+table-2.1.cc
+table-2.1.spec
+table-2.3.cc
+table-2.3.spec
+table-2.4.cc
+table-2.4.spec
+table-3.2.spec
+table-3.3.cc
+table-3.3.spec
+table-3.4.spec
+wordset.cc
+wordset.h
+wordset_test.cc
